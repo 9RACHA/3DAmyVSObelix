@@ -45,6 +45,41 @@ class Program
 En este ejemplo, se simula la reproducción de un video utilizando la función ReproducirVideo(). Después de que el video actual finaliza, se verifica si el autoplay está habilitado mediante la función AutoplayHabilitado(). Si autoplay está habilitado, se reproduce automáticamente el siguiente video llamando nuevamente a la función ReproducirVideo().
 
 
+## Corutina
+using System;
+using System.Threading;
+
+class Program
+{
+    static void Main()
+    {
+        // Creamos un nuevo hilo y le pasamos la función que queremos ejecutar
+        Thread thread = new Thread(Rutina);
+        
+        // Iniciamos la ejecución del hilo
+        thread.Start();
+        
+        // Aquí puedes continuar con la ejecución del programa principal
+        
+        // Esperamos a que el hilo termine antes de finalizar el programa principal
+        thread.Join();
+        
+        Console.WriteLine("Programa finalizado.");
+    }
+    
+    static void Rutina()
+    {
+        // Aquí puedes escribir la secuencia de instrucciones que quieres que se ejecute en la rutina
+        for (int i = 0; i < 5; i++)
+        {
+            Console.WriteLine("Ejecutando paso " + i);
+            Thread.Sleep(1000); // Simulamos un retraso de 1 segundo entre cada paso
+        }
+    }
+}
+
+
+
 ## Normalize
 normalized es una función o propiedad que se utiliza comúnmente en vectores para obtener una versión normalizada del vector original. Un vector normalizado es aquel que tiene una longitud de 1 unidad y mantiene la dirección original del vector.
 
