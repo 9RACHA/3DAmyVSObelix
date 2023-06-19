@@ -46,34 +46,36 @@ En este ejemplo, se simula la reproducción de un video utilizando la función R
 
 
 ## Corutina
+
 using System;
-using System.Threading;
+using System.Collections;
 
 class Program
 {
     static void Main()
     {
-        // Creamos un nuevo hilo y le pasamos la función que queremos ejecutar
-        Thread thread = new Thread(Rutina);
+        IEnumerator coroutine = Corutina();
         
-        // Iniciamos la ejecución del hilo
-        thread.Start();
-        
-        // Aquí puedes continuar con la ejecución del programa principal
-        
-        // Esperamos a que el hilo termine antes de finalizar el programa principal
-        thread.Join();
+        while (coroutine.MoveNext())
+        {
+            Console.WriteLine("La corutina se ha activado.");
+            // Realiza aquí la acción deseada
+        }
         
         Console.WriteLine("Programa finalizado.");
     }
     
-    static void Rutina()
+    static IEnumerator Corutina()
     {
-        // Aquí puedes escribir la secuencia de instrucciones que quieres que se ejecute en la rutina
-        for (int i = 0; i < 5; i++)
+        while (true)
         {
-            Console.WriteLine("Ejecutando paso " + i);
-            Thread.Sleep(1000); // Simulamos un retraso de 1 segundo entre cada paso
+            yield return new WaitForSeconds(0.5f); // Espera 0.5 segundos
+            int randomValue = UnityEngine.Random.Range(0, 101); // Genera un número aleatorio entre 0 y 100
+            
+            if (randomValue <= 10)
+            {
+                yield return null; // Activa la corutina
+            }
         }
     }
 }
