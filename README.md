@@ -80,6 +80,32 @@ class Program
     }
 }
 
+## Destroy
+
+using System.Collections;
+using UnityEngine;
+
+public class DestruccionFruta : MonoBehaviour
+{
+    public GameObject frutaPrefab;
+
+    void Start()
+    {
+        StartCoroutine(DestruirFrutaDespuesDeTiempo());
+    }
+
+    IEnumerator DestruirFrutaDespuesDeTiempo()
+    {
+        yield return new WaitForSeconds(30f); // Espera 30 segundos
+
+        if (frutaPrefab != null)
+        {
+            Destroy(frutaPrefab); // Destruye el prefab de fruta
+        }
+    }
+}
+
+
 
 
 ## Normalize
