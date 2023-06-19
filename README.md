@@ -1,5 +1,50 @@
 # 3DAmyVSObelix
 
+autoplay se puede implementar de varias formas dependiendo del contexto y el tipo de aplicación. Aquí tienes un ejemplo básico de cómo podrías implementar el autoplay en una aplicación de reproducción de videos:
+
+using System;
+using System.Threading;
+
+class Program
+{
+    static void Main()
+    {
+        // Simulamos la reproducción de un video
+        ReproducirVideo("video1.mp4");
+        
+        // Detectamos cuando finaliza la reproducción del video
+        Console.WriteLine("La reproducción del video ha finalizado.");
+        
+        // Si autoplay está habilitado, reproducir automáticamente el siguiente video
+        if (AutoplayHabilitado())
+        {
+            ReproducirVideo("video2.mp4");
+        }
+        
+        Console.WriteLine("Presiona cualquier tecla para salir.");
+        Console.ReadKey();
+    }
+
+    static void ReproducirVideo(string archivo)
+    {
+        Console.WriteLine("Reproduciendo video: " + archivo);
+        // Aquí puedes agregar tu lógica de reproducción de video utilizando alguna biblioteca o API adecuada
+        // Ejemplo: utilizar una biblioteca multimedia como FFmpeg o utilizar el reproductor de video integrado en tu aplicación
+        Thread.Sleep(3000); // Simulamos la duración del video
+    }
+
+    static bool AutoplayHabilitado()
+    {
+        // Aquí puedes implementar la lógica para verificar si autoplay está habilitado
+        // Por ejemplo, podrías leer la configuración de la aplicación desde una base de datos o un archivo de configuración
+        // y devolver un valor booleano que indique si autoplay está habilitado o no.
+        return true; // Ejemplo: autoplay está habilitado
+    }
+}
+
+En este ejemplo, se simula la reproducción de un video utilizando la función ReproducirVideo(). Después de que el video actual finaliza, se verifica si el autoplay está habilitado mediante la función AutoplayHabilitado(). Si autoplay está habilitado, se reproduce automáticamente el siguiente video llamando nuevamente a la función ReproducirVideo().
+
+
 ## Normalize
 normalized es una función o propiedad que se utiliza comúnmente en vectores para obtener una versión normalizada del vector original. Un vector normalizado es aquel que tiene una longitud de 1 unidad y mantiene la dirección original del vector.
 
