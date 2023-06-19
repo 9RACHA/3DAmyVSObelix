@@ -1,5 +1,8 @@
 # 3DAmyVSObelix
 
+## Normalize
+normalized es una función o propiedad que se utiliza comúnmente en vectores para obtener una versión normalizada del vector original. Un vector normalizado es aquel que tiene una longitud de 1 unidad y mantiene la dirección original del vector.
+
 Programar en Unity un videojuego en 3D llamado AmyContraObelix, completando el proyecto
 base entregado según se detalla a continuación.
 Se deben programar las mecánicas de control básico del personaje principal, usando la clase
